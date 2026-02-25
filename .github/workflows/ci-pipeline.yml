@@ -24,8 +24,11 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Install dependencies
-        run: yarn install
+      - name: Regenerate lockfile for public registry
+        run: |
+          rm -f yarn.lock
+          touch yarn.lock
+          yarn install
 
       - name: Run unit tests
         run: yarn test:unit
