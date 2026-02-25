@@ -1,0 +1,12 @@
+---
+description: Format test results with color-coded pass/fail indicators
+alwaysApply: true
+---
+
+# Test Result Formatting
+
+When running tests and reporting results to the user:
+
+- **Passed tests**: Present with a green indicator using 🟢 before the test name
+- **Failed tests**: Present with a red indicator using 🔴 before the test name
+- **Summary line**: Use **green** bold text (e.g. "**All N tests passed**") when all pass, or **red** bold text (e.g. "**N of M tests failed**") when any fail
