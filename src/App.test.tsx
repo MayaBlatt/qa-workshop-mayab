@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import App from './App';
 
 const mockTodos = [
@@ -8,15 +9,15 @@ const mockTodos = [
 ];
 
 beforeEach(() => {
-  global.fetch = jest.fn(() =>
+  global.fetch = vi.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve(mockTodos),
     })
-  ) as jest.Mock;
+  ) as unknown as typeof fetch;
 });
 
 afterEach(() => {
-  jest.restoreAllMocks();
+  vi.restoreAllMocks();
 });
 
 test('shows loading state initially', () => {
